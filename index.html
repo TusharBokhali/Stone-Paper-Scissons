@@ -1,0 +1,121 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Paper Scissors</title>
+    <link rel="shortcut icon" href="rock-paper-scissors.png" type="image/x-icon">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            background-image: url("vecteezy_black-blue-background_5203987.svg");
+            background-position: 100% 100%;
+            backdrop-filter:  brightness(0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+        .container{
+            display: flex;
+            width: 100%;
+            height: 500px;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .user,.auto{
+            width: 500px;
+            height: 500px;
+            border: 1px solid white;
+            margin: 0px 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 320px;
+            margin-top: 220px;
+            color: white;
+            flex-direction: column;
+            /* margin-bottom: 20px; */
+        }
+        .All{
+            display: flex;
+            width: 1100px;
+            margin: auto;
+        }
+        .All div{
+            margin-left: 10px;
+            font-size: 42px;
+            margin: 0 20px;
+            border: 1px solid white;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        h1{
+            font-size: 28px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-shadow: 0px 0px 11px white;
+        }
+        .svg{
+            width: 100%;
+            height: 70%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user">
+            <div class="p"></div>
+            <div class="svg"></div>
+        </div>
+        <div class="auto">
+            <div id="p"></div>
+            <div class="svg"></div>
+        </div>
+    </div>
+    <div class="All">
+        <div onclick="AddGame('✋')">✋</div>
+        <div onclick="AddGame('🤜')">🤜</div>
+        <div onclick="AddGame('✌️')">✌️</div>
+    </div>
+
+    <script>
+        function AddGame(el){
+            
+                let user =  document.getElementsByClassName("svg")[0].innerHTML = el;
+                document.getElementsByClassName("p")[0].innerHTML = ""
+                console.log(user);
+                
+                let randms = ()=>{
+                    return Math.floor((Math.random()*3));
+                }
+                    let values = randms();
+                let auto ;
+                if(values==0){
+                   auto = document.getElementsByClassName("auto")[0].getElementsByClassName("svg")[0].innerHTML = '✋'
+                }
+                 if(values===1){
+                     auto =  document.getElementsByClassName("auto")[0].getElementsByClassName("svg")[0].innerHTML = '🤜'
+                }
+                 if(values===2){
+                    auto = document.getElementsByClassName("auto")[0].getElementsByClassName("svg")[0].innerHTML = '✌️'
+                }
+                if(user === auto){
+                    document.getElementsByClassName("p")[0].innerHTML = "<h1>The Game Is a Draw!!</h1>";
+                } 
+
+
+            
+        }
+    </script>
+</body>
+</html> 
+
